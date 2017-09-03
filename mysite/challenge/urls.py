@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import submit_challenge, ChallengeListView, deadline_missed
+from .views import submit_challenge, ChallengeListView, deadline_missed, register_view
 from django.contrib.auth import views as auth_views
 from .models import Challenge
 from django.shortcuts import render
@@ -17,5 +17,6 @@ urlpatterns = [
         r"^error/deadline_missed/?$",
         deadline_missed,
         name="deadline_missed"
-    )
+    ),
+    url(r"^register/?$", register_view, name="register")
 ]

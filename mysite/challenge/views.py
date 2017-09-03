@@ -4,6 +4,8 @@ from django.views.generic.list import ListView
 from .models import Challenge, ChallengeAttempt, StudentProfile
 from .forms import ChallengeAttemptForm
 import datetime
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -42,3 +44,18 @@ def submit_challenge(request, pk):
     else:
         form = ChallengeAttemptForm()
     return render(request, 'challenge/challenge.html', {'form': form, 'challenge': obj})
+
+def register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = User.objects.get(username=form.cleaned_data['username'])
+            student = StudentProfile(user=user)
+            student.save()
+            return redirect('/login')
+    if request.method == 'GET':
+        form = UserCreationForm()
+    return render(request, 'challenge/register.html', {
+        'form': form
+    })
