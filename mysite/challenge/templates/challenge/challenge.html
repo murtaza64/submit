@@ -4,8 +4,7 @@
     <p>{{challenge.body}}</p>
     <form action="/submit/{{challenge.id}}" method="post">
         {% csrf_token %}
-        <textarea name="solution"></textarea>
-        <input type="text" name="answer">
+        {{form.as_p}}
         <input type="submit">
     </form>
 </body>
