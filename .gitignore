@@ -1,4 +1,8 @@
 venv/*
 *.DS_Store
 .DS_Store
+<<<<<<< HEAD
 *.pyc
+=======
+*.pyc
+>>>>>>> 674cc9eb96dbd7b51feddcaa309e2c4e74667f77

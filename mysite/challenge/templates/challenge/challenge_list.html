@@ -1,0 +1,8 @@
+<body>
+    <h1>Submit</h1>
+    {% for challenge in object_list %}
+        <h1><a href="/challenge/{{challenge.id}}">{{challenge.title}}</a></h1>
+        <h3>{{challenge.subject}}</h3>
+        <p>{{challenge.body}}</p>
+    {% endfor %}
+</body>
