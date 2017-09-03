@@ -25,7 +25,7 @@ def submit_challenge(request, pk):
     obj = Challenge.objects.get(pk=pk)
     if request.method == "POST":
         if not request.user.is_authenticated: #TODO
-            redirect('/login')
+            return redirect('/login')
         print(request.POST)
         form = ChallengeAttemptForm(request.POST)
         if form.is_valid():
