@@ -20,6 +20,9 @@ class Answer(models.Model):
 class Subject(models.Model):
     name = CharField(max_length=30)
 
+    def __str__(self):
+        return self.name
+
 class StudentProfile(models.Model):
     user = OneToOneField(User)
     subjects = ManyToManyField(Subject)
@@ -27,6 +30,6 @@ class StudentProfile(models.Model):
 class ChallengeAttempt(models.Model):
     student = ForeignKey(StudentProfile)
     challenge = ForeignKey(Challenge)
-    date = DateField(auto_now_add=True)
+    timestamp = DateTimeField(auto_now_add=True)
     answer = CharField(max_length=140, null=True)
     solution = TextField(null=True)
