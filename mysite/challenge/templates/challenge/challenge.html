@@ -1,0 +1,11 @@
+<body>
+    <h1>{{challenge.title}}</h1>
+    <h3>{{challenge.subject}}</h3>
+    <p>{{challenge.body}}</p>
+    <form action="/submit/{{challenge.id}}" method="post">
+        {% csrf_token %}
+        <textarea name="solution"></textarea>
+        <input type="text" name="answer">
+        <input type="submit">
+    </form>
+</body>
