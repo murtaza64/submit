@@ -1,0 +1,26 @@
+body {
+    background-color: #1e1e1e;
+}
+
+.ptitle {
+    text-align: center;
+    color: #4286f4;
+    font-size: 60px;
+}
+
+.tileX {
+    float: left;
+    height: 300px;
+    /* Not working
+    color: #ff0000; */
+}
+
+.title {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: right;
+    /* Not working
+    color: #ff0000; */
+}
