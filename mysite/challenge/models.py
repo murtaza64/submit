@@ -14,8 +14,14 @@ class Challenge(models.Model):
     auto_check = BooleanField(default=True)
     solution_only = BooleanField(default=False)
 
+    def __str__(self):
+        return '{} ({})'.format(self.title, self.subject)
+
 class Answer(models.Model):
     value = CharField(max_length=140)
+
+    def __str__(self):
+        return self.value
 
 class Subject(models.Model):
     name = CharField(max_length=30)
@@ -27,9 +33,15 @@ class StudentProfile(models.Model):
     user = OneToOneField(User)
     subjects = ManyToManyField(Subject)
 
+    def __str__(self):
+        return str(self.user)
+
 class ChallengeAttempt(models.Model):
     student = ForeignKey(StudentProfile)
     challenge = ForeignKey(Challenge)
     timestamp = DateTimeField(auto_now_add=True)
     answer = CharField(max_length=140, null=True)
     solution = TextField(null=True)
+
+    def __str__(self):
+        return '{} : {} by {}'.format(self.timestamp, self.challenge, self.student)

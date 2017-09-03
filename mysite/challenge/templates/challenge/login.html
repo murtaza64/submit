@@ -1,0 +1,8 @@
+<body>
+    <form method="POST">
+        {{form}}
+        {% csrf_token %}
+        <input type="submit">
+        <input type="hidden" id="next" name="next" value="/">
+    </form>
+</body>
